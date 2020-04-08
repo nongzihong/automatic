@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.automatic.mapper.StudentMapper">
+
+
+    <resultMap id="StudentMap" type="com.example.automatic.entity.Student">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="selectByMap" parameterType="Map" resultMap="StudentMap">
+        select * from student
+    </select>
+
+
+    <select id="count" parameterType="integer" resultType="integer">
+        select  count(*)  from student
+    </select>
+
+</mapper>
